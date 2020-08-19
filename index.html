@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>beer</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <section class="banner">
+        <h1 aria-label="Beer"></h1>
+        <div class="svg-wrapper">
+            <svg version="1.1" id="drinkingMan" x="0px" y="0px" width="100%" height="500px" viewBox="0 0 200 500" xml:space="preserve">
+                        <g id="right-arm">
+                            <rect id="arm" x="156.9" y="145.8" transform="matrix(0.9665 -0.2565 0.2565 0.9665 -52.129 50.2215)" class="skinDark" width="19" height="158.2"/>
+                            <g id="right-hand">
+                                <circle class="skinDark" cx="182.8" cy="304.9" r="15.3"/>
+                                <path class="hand-shadow" d="M187.5,319.2c-8.5,0-15.3-6.9-15.3-15.3c0-6.5,4.1-12.1,9.8-14.3c-8.1,0.5-14.5,7.1-14.5,15.3
+                                    c0,8.5,6.9,15.3,15.3,15.3c2,0,3.8-0.4,5.5-1C188.1,319.2,187.8,319.2,187.5,319.2z"/>
+                            </g>
+                        
+                        </g>
+                        
+                        <g id="body">
+                            <g id="stomach-area">
+                                <rect id="stomach-shadow" x="79.2" y="199.5" class="skinShadow" width="55.2" height="46.8"/>
+                                <rect id="stomach" x="79.2" y="199.5" class="skin" width="19.5" height="46.8"/>
+                            </g>
+                            <g id="chest-area">
+                                <g id="chest">
+                                    <circle id="chest-torax" class="skin" cx="107" cy="158.5" r="50.5"/>
+                                    <path id="chest-shadow" class="skinShadow" d="M107,108c-0.9,0-1.9,0-2.8,0.1c24.2,3.7,42.8,24.6,42.8,49.9c0,26.9-21.1,49-47.7,50.4
+                                        c2.5,0.4,5.1,0.6,7.7,0.6c27.9,0,50.5-22.6,50.5-50.5S134.9,108,107,108z"/>
+                                </g>
+                                <circle id="left-nipple" class="nipple" cx="86" cy="157.5" r="4.2"/>
+                                <circle id="right-nipple" class="nipple" cx="126" cy="157.8" r="4.2"/>
+                            </g>
+                        </g>
+                        
+                        <g id="head">
+                            <path id="head-hair" class="hair" d="M134.8,29.5v-8.9c0-10-6.9-18.1-15.4-18.1H96.8c-8.5,0-15.4,8.1-15.4,18.1v8.9H134.8z"/>
+                            <path id="neck" class="skinDark" d="M132.9,103.7c0,14.8-10.3,26.8-23,26.8h-3.5c-12.7,0-23-12-23-26.8V33.3c0-14.8,10.3-26.8,23-26.8
+                                h3.5c12.7,0,23,12,23,26.8V103.7z"/>
+                            <circle id="left-ear" class="skinDark" cx="81.7" cy="34.6" r="5.6"/>
+                            <circle id="right-ear" class="skinDark" cx="133.5" cy="34.3" r="5.6"/>
+                            <g id="bear">
+                                <circle id="bear-hair" class="bear-hair" cx="107.6" cy="72.9" r="28.7"/>
+                                <path id="bear-shadow" class="bear-shadow" d="M107.9,86.5c-13.5,0-24.7-9.3-27.8-21.8c-0.8,2.6-1.2,5.3-1.2,8.1
+                                    c0,15.8,12.8,28.7,28.7,28.7c15.8,0,28.7-12.8,28.7-28.7c0-2.4-0.3-4.7-0.8-6.9C131.9,77.9,120.9,86.5,107.9,86.5z"/>
+                            </g>
+                            <path id="glasses" class="glasses" d="M133.3,28.1h-21.6v0h-6.1h-0.3h-22c-0.1,0.7-0.2,1.4-0.2,2.2c0,6.3,5.1,11.3,11.3,11.3
+                                s11.3-5.1,11.3-11.3c0-0.1,0-0.1,0-0.2h5c0,0.1,0,0.1,0,0.2c0,6.3,5.1,11.3,11.3,11.3c6.3,0,11.3-5.1,11.3-11.3
+                                C133.5,29.5,133.4,28.8,133.3,28.1z"/>
+                            <g id="front-hair">
+                                <path id="hair" class="hair" d="M96.2,5.9v2.5c0,4.4,3.6,8,8,8h6.3c4.4,0,8-3.6,8-8V5.9H96.2z"/>
+                                <path id="hair-shadow" class="hair-shadow" d="M118.3,5.9c-0.3,4.1-3.8,7.4-8,7.4H104c-4,0-7.2-2.9-7.9-6.6v1.8c0,4.4,3.6,8,8,8h6.3
+                                    c4.4,0,8-3.6,8-8V5.9H118.3z"/>
+                            </g>
+                        </g>
+                        <g id="left-leg">
+                            <rect id="leg_1_" x="83.8" y="311" class="skin" width="12.2" height="175.1"/>
+                            <g id="left-foot">
+                                <path class="foot-shadow2" d="M85.4,487.7c-0.4-0.1-0.7-0.1-1.1-0.1H69.6c-2.8,0-5,2.2-5,5v0.1c0,2.8,2.3,5,5,5h5.2h9.6H96v-10H85.4z"/>
+                                <path class="skin" d="M85.4,485.9c-0.4-0.1-0.7-0.1-1.1-0.1H69.6c-2.8,0-5,2.2-5,5v0.1c0,2.8,2.3,5,5,5h5.2h9.6H96v-10H85.4z"/>
+                            </g>
+                        </g>
+                        <g id="right-leg">
+                            <rect id="leg" x="117.8" y="310.8" class="skinShadow" width="12.2" height="175.5"/>
+                            <g id="right-foot">
+                                <path class="foot-shadow" d="M128.4,497.9c0.4,0.1,0.7,0.1,1.1,0.1h14.7c2.8,0,5-2.2,5-5v-0.1c0-2.8-2.3-5-5-5H139h-9.6h-11.7v10H128.4z"/>
+                                <path class="skinShadow" d="M128.4,496.1c0.4,0.1,0.7,0.1,1.1,0.1h14.7c2.8,0,5-2.2,5-5v-0.1c0-2.8-2.3-5-5-5H139h-9.6h-11.7v10H128.4z"/>
+                            </g>
+                        </g>
+                        
+                        <g id="pants">
+                            <rect x="82.8" y="256.8" class="pants" width="15.2" height="54.2"/>
+                            <rect x="116.8" y="256.5" class="pants-shadow" width="15.2" height="54.2"/>
+                            <path class="pants" d="M79,246.4c0,0.5,0,1,0,1.5c0,15.5,12.5,28,28,28s28-12.5,28-28c0-0.5,0-1,0-1.5H79z"/>
+                            <path class="pants-shadow" d="M135,246.4h-11.2c0,0.5,0,1,0,1.5c0,13.5-9.6,24.8-22.4,27.4c1.8,0.4,3.7,0.6,5.6,0.6c15.5,0,28-12.5,28-28
+                                C135,247.4,135,246.9,135,246.4z"/>
+                        </g>  
+                        
+                        <g id="left-arm">
+                            <path id="shoulder" class="skin" d="M82.4,145.6l-11.3-15.3L25.3,164L8.1,176.5c-4.2,3.1-5.2,9-2.1,13.3c3.1,4.2,9,5.2,13.3,2.1
+                                l1.5-1.1l0.1,0.1l15.7-11.5l22.4-16.3c0.5-0.3,0.9-0.7,1.2-1.1L82.4,145.6z"/>
+                            <g id="left-hand">
+                            
+                            <path id="arm_1" class="skinDark" d="M51.3,254.2l15.5-10.9l-32.7-46.5l-12.2-17.5c-3-4.3-8.9-5.4-13.2-2.4c-4.3,3-5.4,8.9-2.4,13.2
+                                l1.1,1.5l-0.1,0.1l11.2,15.9l15.8,22.7c0.3,0.5,0.7,0.9,1.1,1.3L51.3,254.2z"/>
+                        <g id="beer">
+                                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="38.4336" y1="224.8452" x2="66.4473" y2="224.8452" gradientTransform="matrix(0.9812 0.1929 -0.1929 0.9812 74.6938 19.5498)">
+                                    <stop  offset="0" style="stop-color:#FFD02D"/>
+                                    <stop  offset="1" style="stop-color:#FFE270"/>
+                                </linearGradient>
+                                <path class="beer" d="M92.7,272.4c-0.6,3.2-3.4,5.3-6.2,4.7l-17.2-3.3c-2.8-0.5-4.6-3.5-4-6.7l7.5-38.9c0.6-3.2,3.4-5.3,6.2-4.7
+                                    l17.2,3.3c2.8,0.5,4.6,3.5,4,6.7L92.7,272.4z"/>
+                                <path class="beer-foam" d="M98,226.1l-20.1-4c-2.5-0.5-4.9,1-5.4,3.3l0,0.1l-1,5l29.2,5.7l1-5l0-0.1C102.2,228.9,100.5,226.6,98,226.1z
+                                    "/>
+                            </g>
+                                <circle id="hand" class="skinDark" cx="66.8" cy="255.1" r="15.3"/>
+                                <path id="hand-shadow" class="hand-shadow" d="M76.7,243.8c4.3,7.3,1.9,16.7-5.4,21c-5.6,3.3-12.5,2.6-17.3-1.2c4.5,6.7,13.5,8.8,20.5,4.7
+                                    c7.3-4.3,9.7-13.7,5.4-21c-1-1.7-2.3-3.1-3.7-4.2C76.4,243.4,76.6,243.6,76.7,243.8z"/>
+                            </g>
+                        
+                        </g>  
+            </svg>
+    </section>
+    </div>
+    <section class="content">
+        <div>
+            <div class="row justify-center">
+                <span class="subtitle">Name your poison</span>
+            </div>
+            <div class="row">
+                <div class="group column">
+                    <input type="text" id="search-name" required="required" />
+                    <label for="name">Name</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="column">
+                    <button id="search-by-name">Find it</button>
+                </div>
+            </div>
+            <div class="row justify-center">
+                <span class="subtitle">Looking for old-school darks or young blondies?</span>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="select">
+                        <select id="search-month">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <select id="search-year">
+                                <option value="2005">2005</option>
+                                <option value="2010">2010</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <button id="search-by-date">Search by date</button>
+                </div>
+            </div>
+            <div class="row justify-center">
+                <span class="subtitle">Hit it and take on the unknown?</span>
+            </div>
+            <div class="row justify-center">
+                <button id="add-beer-button" class="center">Surprise me</button>
+            </div>
+            <div class="row justify-center">
+                <span class="subtitle">Too confused? Clear it off the table</span>
+            </div>
+            <div class="row justify-center">
+                <button id="remove-beers-button">Clear all</button>
+            </div>
+            <div class="row justify-center">
+                <span class="subtitle">Find your taste by leafing through the pages</span>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <span class="info">Results per page:</span>
+                    <div class="select">
+                        <select id="per-page">
+                            <option value="25">25</option>
+                            <option value="40">40</option>
+                            <option value="80">80</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <button id="get-page-beer">Explore by page</button>
+                </div>
+            </div>
+        </div>
+        <div class="pagination-container">
+            <div class="pagination modal">
+                <li><a href="#" class="list-item">1</a></li>
+                <li><a href="#" class="list-item">2</a></li>
+                <li><a href="#" class="list-item">3</a></li>
+                <li><a href="#" class="list-item">4</a></li>
+                <li><a href="#" class="list-item">5</a></li>
+                <li><a href="#" class="list-item">6</a></li>
+                <li><a href="#" class="list-item">7</a></li>
+                <li><a href="#" class="list-item">8</a></li>
+                <li><a href="#" class="list-item">9</a></li>
+                <li><a href="#" class="list-item">10</a></li>
+                <li><a href="#" class="list-item">11</a></li>
+                <li><a href="#" class="list-item">12</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section id="beers"></section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.1/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+    <script src="index.js"></script>
+
+
+</body>
+
+</html>
